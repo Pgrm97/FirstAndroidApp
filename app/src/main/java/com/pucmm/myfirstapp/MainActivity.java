@@ -3,6 +3,7 @@ package com.pucmm.myfirstapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -81,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
         final CheckBox checkPython = findViewById(R.id.checkboxPython);
         final RadioButton yes = findViewById(R.id.radioButtonYes);
 
-
         Button reset = (Button) findViewById(R.id.buttonLimpiar);
         reset.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -99,5 +99,57 @@ public class MainActivity extends AppCompatActivity {
                 yes.setChecked(true);
             }
         });
+
+        Button button;
+        button = (Button) findViewById(R.id.buttonEnviar2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity2();
+            }
+        });
+
+
     }
+
+    public void openActivity2() {
+        Intent intent = new Intent(this, TextActivity.class);
+        final EditText firstName = findViewById(R.id.firstName);
+        final EditText lastName = findViewById(R.id.lastName);
+        final Spinner spinner = findViewById(R.id.spinnerGender);
+        final TextView date = findViewById(R.id.textViewDate);
+        final CheckBox checkJava = findViewById(R.id.checkboxJava);
+        final CheckBox checkCSharp = findViewById(R.id.checkboxCSharp);
+        final CheckBox checkCCPlus = findViewById(R.id.checkboxCCPlusPlus);
+        final CheckBox checkGo = findViewById(R.id.checkboxGo);
+        final CheckBox checkJS = findViewById(R.id.checkboxJS);
+        final CheckBox checkPython = findViewById(R.id.checkboxPython);
+        final RadioButton yes = findViewById(R.id.radioButtonYes);
+        final RadioButton no = findViewById(R.id.radioButtonNo);
+        if(checkJava.isChecked()){
+            intent.putExtra("checkJava", "Java");
+        }
+        if(checkCSharp.isChecked()){
+            intent.putExtra("checkCSharp", "C#");
+        }
+        if(checkCCPlus.isChecked()){
+            intent.putExtra("checkCCPlus", "C/C++");
+        }
+        if(checkGo.isChecked()){
+            intent.putExtra("checkGo", "Go Land");
+        }
+        if(checkJS.isChecked()){
+            intent.putExtra("checkJS", "JS");
+        }
+        if(checkPython.isChecked()){
+            intent.putExtra("checkPython", "Python");
+        }
+        intent.putExtra("firstName", firstName.getText().toString());
+        intent.putExtra("lastName", lastName.getText().toString());
+        intent.putExtra("yes", yes.isChecked());
+        intent.putExtra("spinner", spinner.getSelectedItem().toString());
+        intent.putExtra("date", date.getText().toString());
+
+        startActivity(intent);
+    };
 }
