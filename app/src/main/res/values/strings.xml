@@ -2,6 +2,7 @@
     <string name="app_name">My First App</string>
     <string name="python">Python</string>
     <string name="enviar">Enviar</string>
+    <string name="limpiar">Limpiar</string>
     <string name="digite_un_nombre">Digite un nombre...</string>
     <string name="digite_un_apellido">Digite un apellido...</string>
     <string name="genero">Genero</string>

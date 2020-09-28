@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     //Button buttonEnviar;
-    //EditText firstname, lastname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +60,26 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        Spinner spinner = findViewById(R.id.spinnerGender);
+        final Spinner spinner = findViewById(R.id.spinnerGender);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.genders, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         //spinner.OnItemSelectedListener(this);
         //buttonEnviar = findViewById(R.id.buttonEnviar);
         //buttonEnviar.setOnClickListener();
+
+        final EditText firstName = findViewById(R.id.firstName);
+        final EditText lastName = findViewById(R.id.lastName);
+
+        Button reset = (Button) findViewById(R.id.buttonLimpiar);
+        reset.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                mDisplayDate.setText("");
+                firstName.setText("");
+                lastName.setText("");
+                spinner.setSelection(0);
+            }
+        });
     }
 }
