@@ -10,8 +10,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -71,6 +73,15 @@ public class MainActivity extends AppCompatActivity {
         final EditText firstName = findViewById(R.id.firstName);
         final EditText lastName = findViewById(R.id.lastName);
 
+        final CheckBox checkJava = findViewById(R.id.checkboxJava);
+        final CheckBox checkCSharp = findViewById(R.id.checkboxCSharp);
+        final CheckBox checkCCPlus = findViewById(R.id.checkboxCCPlusPlus);
+        final CheckBox checkGo = findViewById(R.id.checkboxGo);
+        final CheckBox checkJS = findViewById(R.id.checkboxJS);
+        final CheckBox checkPython = findViewById(R.id.checkboxPython);
+        final RadioButton yes = findViewById(R.id.radioButtonYes);
+
+
         Button reset = (Button) findViewById(R.id.buttonLimpiar);
         reset.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -79,6 +90,13 @@ public class MainActivity extends AppCompatActivity {
                 firstName.setText("");
                 lastName.setText("");
                 spinner.setSelection(0);
+                checkJava.setChecked(false);
+                checkCSharp.setChecked(false);
+                checkCCPlus.setChecked(false);
+                checkGo.setChecked(false);
+                checkJS.setChecked(false);
+                checkPython.setChecked(false);
+                yes.setChecked(true);
             }
         });
     }

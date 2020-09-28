@@ -184,6 +184,7 @@
             android:id="@+id/radioButtonYes"
             android:layout_width="80dp"
             android:layout_height="22dp"
+            android:checked="true"
             android:text="@string/s" />
 
         <RadioButton
